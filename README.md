@@ -39,7 +39,7 @@ To run the application locally, follow these steps:
 
 4. Set up the MongoDB database:
    - Create a MongoDB Atlas account or use a local MongoDB instance.
-   - Update the MongoDB connection string in `server/config/db.js` with your database credentials.
+   - Update the MongoDB connection string in `backend/config/index.js` with your database credentials.
 
 5. Start the backend server:
 
