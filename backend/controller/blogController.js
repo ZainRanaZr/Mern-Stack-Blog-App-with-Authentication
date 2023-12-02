@@ -28,7 +28,7 @@ const blogController = {
     // client side -> base64 encoded string -> decoded -> store -> save path to Db
     // read node.js buffer
     const buffer = Buffer.from(
-      image.replace(/^data:image\/(png|jpg|jpeg); base64,/, ""),
+      image.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""),
       "base64"
     );
     // allocate a random name
@@ -68,7 +68,7 @@ const blogController = {
         blogsDto.push(dto);
       }
 
-      return res.status(201).json({ blogs: blogsDto });
+      return res.status(200).json({ blogs: blogsDto });
     } catch (error) {
       return next(error);
     }
@@ -128,7 +128,7 @@ const blogController = {
       // save new image
       // read node.js buffer
       const buffer = Buffer.from(
-        image.replace(/^data:image\/(png|jpg|jpeg); base64,/, ""),
+        image.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""),
         "base64"
       );
       // allocate a random name
@@ -178,13 +178,14 @@ const blogController = {
       // 3: delete comments of blog
       //Delete All Comment By Blog Id
       await Comment.deleteMany({ blog: id });
-
     } catch (error) {
       return next(error);
     }
-    
+
     // 4: Return Response
-    return res.status(200).json({message: "Blog and Comment Deleted Successfully"})
+    return res
+      .status(200)
+      .json({ message: "Blog and Comment Deleted Successfully" });
   },
 };
 
